@@ -1,5 +1,6 @@
 //Import required modules
 const express = require('express');
+const router = express.Router();
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
@@ -24,7 +25,6 @@ app.get('/', (req, res) => res.json({ status: 'ok'}));
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/categories', require('./routes/category.routes'));
 app.use('/api/tasks', require('./routes/task.routes'));
-
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
