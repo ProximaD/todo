@@ -13,7 +13,7 @@ exports.validateSignup = [
 
 exports.signup = asyncHandler(async (req, res) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty()) return rew.status(400).jsob({ errors: errors.array() });
+    if (!errors.isEmpty()) return rew.status(400).json({ errors: errors.array() });
 
     const { name, email, password } = req.body;
     const exists = await User.findOne({ email });
@@ -45,7 +45,7 @@ exports.login = asyncHandler(async (req, res) => {
     res.json({ user: { id: user._id, name: user.name, email: user.email }, token });
 });
 
-exports.me = asyncHnadler(async (req, res) => {
+exports.me = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id).select('_id name email createdAt');
     res.json({ user });
 });
