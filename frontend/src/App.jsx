@@ -160,7 +160,7 @@ function Dashboard({ user, onLogout }) {
       <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-300/30 rounded-full blur-3xl animate-pulse"></div>
 
       {/* Header */}
-      <header className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative z-10">
+      <header className="fixed top-0 left-0 w-full h-16 flex items-center justify-between px-6 bg-white/80 backdrop-blur-md shadow z-20">
         <h1 className="text-lg sm:text-xl font-semibold text-gray-800">
           Hello, {user?.name || "User"} 👋
         </h1>
@@ -208,7 +208,7 @@ function Dashboard({ user, onLogout }) {
       </header>
 
       {/* Main content */}
-      <main className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6 pb-10 relative z-10">
+      <main className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6 pb-10 relative z-10 mt-20">
         {/* Sidebar (Categories) */}
         <section className={`${sidebarOpen ? "block" : "hidden sm:block"} md:col-span-1 bg-white/80 backdrop-blur-md p-5 rounded-2xl shadow-lg animate-fadeIn`}>
           <h2 className="font-semibold mb-3 text-gray-800">Categories</h2>
