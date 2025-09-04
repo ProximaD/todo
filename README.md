@@ -305,9 +305,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </div>
 
 **Your Name**
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
-- 💼 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- 📧 Email: your.email@example.com
+- 🐙 GitHub: https://github.com/ProximaD
+- 💼 LinkedIn: linkedin.com/in/sandra-lavenda-7a2228174
+- 📧 Email: sandralavenda254@gmail.com
 
 ## 🙏 Acknowledgments
 
