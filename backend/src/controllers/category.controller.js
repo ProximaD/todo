@@ -1,8 +1,8 @@
-const { body, validationResult } = required('express-validator');
+const { body, validationResult } = require('express-validator');
 const Category = require('../models/Category');
 const asyncHandler = require('../utils/asyncHandler');
 
-exports.calidateCreate = [body('name').trim().notEmpty().withMessage('Name required')];
+exports.validateCreate = [body('name').trim().notEmpty().withMessage('Name required')];
 
 exports.create = asyncHandler(async (req, res) => {
     const errors = validationResult(req);
