@@ -14,9 +14,16 @@ dotenv.config();
 //Initialize Express app
 const app = express();
 
+app.use(cors({ 
+    origin: [
+        "https://todo-mu-three-23.vercel.app", //Live frontend URL
+        "http://localhost:5173"], //Local frontend URL
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"] 
+    }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => res.json({ status: 'ok'}));
