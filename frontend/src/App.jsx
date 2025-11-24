@@ -40,7 +40,7 @@ function Auth({ onSuccess }) {
     e.preventDefault();
     setError("");
     try {
-      const path = isLogin ? "/auth/login" : "/auth/signup";
+      const path = isLogin ? "/api/auth/login" : "/api/auth/signup";
       const payload = isLogin ? { email, password } : { name, email, password };
       const { data } = await api.post(path, payload);
       localStorage.setItem("token", data.token);
