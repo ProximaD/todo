@@ -114,8 +114,8 @@ function Dashboard({ user, onLogout }) {
 
   const load = async () => {
     const [{ data: catData }, { data: taskData }] = await Promise.all([
-      api.get("/categories"),
-      api.get("/tasks", { params: { q } }),
+      api.get("/api/categories"),
+      api.get("/api/tasks", { params: { q } }),
     ]);
     setCats(catData);
     setTasks(taskData);
@@ -128,21 +128,21 @@ function Dashboard({ user, onLogout }) {
   const addCategory = async (e) => {
     e.preventDefault();
     if (!newCat) return;
-    await api.post("/categories", { name: newCat, color });
+    await api.post("/api/categories", { name: newCat, color });
     setNewCat("");
     load();
   };
 
   const deleteCategory = async (id) => {
   if (!id) return;
-  await api.delete(`/categories/${id}`);
+  await api.delete(`/api/categories/${id}`);
   load(); // reload categories + tasks after deleting
 };
 
 
   const addTask = async (e) => {
     e.preventDefault();
-    await api.post("/tasks", { title, description: desc, dueDate: due, category: catId || undefined });
+    await api.post("/api/tasks", { title, description: desc, dueDate: due, category: catId || undefined });
     setTitle("");
     setDesc("");
     setDue("");
@@ -150,8 +150,8 @@ function Dashboard({ user, onLogout }) {
     load();
   };
 
-  const toggle = async (id) => { await api.patch(`/tasks/${id}/toggle`); load(); };
-  const removeTask = async (id) => { await api.delete(`/tasks/${id}`); load(); };
+  const toggle = async (id) => { await api.patch(`/api/tasks/${id}/toggle`); load(); };
+  const removeTask = async (id) => { await api.delete(`/api/tasks/${id}`); load(); };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
