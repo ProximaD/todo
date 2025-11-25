@@ -10,7 +10,7 @@ export default function App() {
     const token = localStorage.getItem("token");
     if (token) {
       api
-        .get("/auth/me")
+        .get("/api/auth/me")
         .then((res) => {
           setUser(res.data.user);
           setPage("app");
